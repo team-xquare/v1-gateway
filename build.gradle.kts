@@ -1,10 +1,10 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "2.6.6"
-    id("io.spring.dependency-management") version "1.0.11.RELEASE"
-    kotlin("jvm") version "1.6.10"
-    kotlin("plugin.spring") version "1.6.10"
+    id("org.springframework.boot") version PluginVersions.SPRING_BOOT_VERSION
+    id("io.spring.dependency-management") version PluginVersions.DEPENDENCY_MANAGER_VERSION
+    kotlin("jvm") version PluginVersions.JVM_VERSION
+    kotlin("plugin.spring") version PluginVersions.SPRING_PLUGIN_VERSION
 }
 
 group = "com.xquare.gateway"
@@ -15,26 +15,22 @@ repositories {
     mavenCentral()
 }
 
-extra["springCloudVersion"] = "2021.0.1"
-
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-validation")
-    implementation("org.springframework.boot:spring-boot-starter-webflux")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
-    implementation("org.springframework.cloud:spring-cloud-starter-circuitbreaker-reactor-resilience4j")
-    implementation("org.springframework.cloud:spring-cloud-starter-gateway")
-    implementation("org.springframework.cloud:spring-cloud-starter-loadbalancer")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("io.projectreactor:reactor-test")
+    implementation(Dependencies.WEBFLUX)
+    implementation(Dependencies.COROUTINE_REACTOR_EXTENSION)
+    implementation(Dependencies.COROUTINE_REACTOR)
+    implementation(Dependencies.SPRING_CLOUD_GATEWAY)
+    implementation(Dependencies.SPRING_VALIDATION)
+    implementation(Dependencies.KOTLIN_JACKSON)
+    implementation(Dependencies.KOTLIN_REFLECT)
+    implementation(Dependencies.KOTLIN_STDLIB)
+    implementation(Dependencies.CIRCUIT_BREAKER)
+    testImplementation(Dependencies.SPRING_BOOT_TEST)
 }
 
 dependencyManagement {
     imports {
-        mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:${DependencyVersions.SPRING_CLOUD_VERSION}")
     }
 }
 
