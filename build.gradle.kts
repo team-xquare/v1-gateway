@@ -5,6 +5,7 @@ plugins {
     id("io.spring.dependency-management") version PluginVersions.DEPENDENCY_MANAGER_VERSION
     kotlin("jvm") version PluginVersions.JVM_VERSION
     kotlin("plugin.spring") version PluginVersions.SPRING_PLUGIN_VERSION
+    kotlin("kapt") version PluginVersions.KAPT_VERSION
 }
 
 group = "com.xquare.gateway"
@@ -26,6 +27,7 @@ dependencies {
     implementation(Dependencies.KOTLIN_STDLIB)
     implementation(Dependencies.CIRCUIT_BREAKER)
     implementation(Dependencies.ACTUATOR)
+    kapt(Dependencies.ANNOTATION_PROCESSOR)
     testImplementation(Dependencies.SPRING_BOOT_TEST)
 }
 
