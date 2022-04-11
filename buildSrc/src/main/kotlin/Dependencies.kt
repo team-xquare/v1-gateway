@@ -9,4 +9,6 @@ object Dependencies {
     const val KOTLIN_REFLECT = "org.jetbrains.kotlin:kotlin-reflect"
     const val KOTLIN_STDLIB = "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     const val SPRING_BOOT_TEST = "org.springframework.boot:spring-boot-starter-test"
+    const val ACTUATOR = "org.springframework.boot:spring-boot-starter-actuator"
+
 }

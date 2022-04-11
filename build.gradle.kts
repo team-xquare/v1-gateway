@@ -25,6 +25,7 @@ dependencies {
     implementation(Dependencies.KOTLIN_REFLECT)
     implementation(Dependencies.KOTLIN_STDLIB)
     implementation(Dependencies.CIRCUIT_BREAKER)
+    implementation(Dependencies.ACTUATOR)
     testImplementation(Dependencies.SPRING_BOOT_TEST)
 }
 
