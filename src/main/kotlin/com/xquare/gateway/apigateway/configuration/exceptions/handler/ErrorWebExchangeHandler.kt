@@ -1,12 +1,13 @@
 package com.xquare.gateway.apigateway.configuration.exceptions.handler
 
 import com.xquare.gateway.apigateway.configuration.exceptions.BaseException
+import com.xquare.gateway.apigateway.configuration.exceptions.InternalServerError
+import com.xquare.gateway.apigateway.configuration.exceptions.ServiceConnectionException
 import com.xquare.gateway.apigateway.configuration.exceptions.payload.ErrorResponse
 import org.springframework.boot.autoconfigure.web.WebProperties
 import org.springframework.boot.autoconfigure.web.reactive.error.AbstractErrorWebExceptionHandler
 import org.springframework.boot.web.reactive.error.ErrorAttributes
 import org.springframework.context.ApplicationContext
-import org.springframework.http.HttpStatus
 import org.springframework.http.codec.ServerCodecConfigurer
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.server.RequestPredicates
@@ -15,6 +16,7 @@ import org.springframework.web.reactive.function.server.RouterFunctions
 import org.springframework.web.reactive.function.server.ServerRequest
 import org.springframework.web.reactive.function.server.ServerResponse
 import reactor.core.publisher.Mono
+import java.net.ConnectException
 
 @Component
 class ErrorWebExchangeHandler(
@@ -36,27 +38,20 @@ class ErrorWebExchangeHandler(
     override fun getRoutingFunction(errorAttributes: ErrorAttributes?): RouterFunction<ServerResponse> =
         RouterFunctions.route(RequestPredicates.all(), this::handleError)
 
-    fun handleError(request: ServerRequest): Mono<ServerResponse> {
-        return when (val throwable = super.getError(request)) {
-            is BaseException -> {
-                ServerResponse.status(throwable.statusCode)
-                    .bodyValue(
-                        ErrorResponse(
-                            errorMessage = throwable.errorMessage,
-                            statusCode = throwable.statusCode
-                        )
-                    )
-            }
-            else -> {
-                ServerResponse.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .bodyValue(
-                        ErrorResponse(
-                            errorMessage = throwable.javaClass.simpleName,
-                            statusCode = 500,
-                        )
-                    )
-            }
+    private fun handleError(request: ServerRequest): Mono<ServerResponse> =
+        when (val throwable = super.getError(request)) {
+            is BaseException -> buildErrorResponse(throwable)
+            is ConnectException -> buildErrorResponse(ServiceConnectionException.CANNOT_CONNECT_EXCEPTION)
+            else -> buildErrorResponse(InternalServerError.UNCAUGHT_EXCEPTION_OCCURRED)
         }
-    }
+
+    private fun buildErrorResponse(baseException: BaseException) =
+        ServerResponse.status(baseException.statusCode)
+            .bodyValue(
+                ErrorResponse(
+                    errorMessage = baseException.errorMessage,
+                    statusCode = baseException.statusCode
+                )
+            )
 
 }
