@@ -29,6 +29,7 @@ dependencies {
     implementation(Dependencies.CIRCUIT_BREAKER)
     implementation(Dependencies.ACTUATOR)
     implementation(Dependencies.ZIPKIN)
+    implementation(Dependencies.SPRING_RABBIT)
     implementation(Dependencies.STARTER_SLEUTH)
     kapt(Dependencies.ANNOTATION_PROCESSOR)
     testImplementation(Dependencies.SPRING_BOOT_TEST)

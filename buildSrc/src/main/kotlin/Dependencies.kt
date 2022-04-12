@@ -14,4 +14,5 @@ object Dependencies {
     const val ANNOTATION_PROCESSOR = "org.springframework.boot:spring-boot-configuration-processor"
     const val ZIPKIN = "org.springframework.cloud:spring-cloud-sleuth-zipkin"
     const val STARTER_SLEUTH = "org.springframework.cloud:spring-cloud-starter-sleuth"
+    const val SPRING_RABBIT = "org.springframework.amqp:spring-rabbit:${DependencyVersions.RABBIT_VERSION}"
 }
