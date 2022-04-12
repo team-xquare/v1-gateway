@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
 
 plugins {
     id("org.springframework.boot") version PluginVersions.SPRING_BOOT_VERSION
@@ -18,6 +19,7 @@ repositories {
 
 dependencies {
     implementation(Dependencies.WEBFLUX)
+    implementation(Dependencies.SECURITY_JWT)
     implementation(Dependencies.COROUTINE_REACTOR_EXTENSION)
     implementation(Dependencies.COROUTINE_REACTOR)
     implementation(Dependencies.SPRING_CLOUD_GATEWAY)
