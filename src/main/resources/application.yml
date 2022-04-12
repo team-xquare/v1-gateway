@@ -11,3 +11,12 @@ services:
   user:
     destination:
       user-service-url: ${USER_SERVICE_URL} # TODO replace with service discovery
+
+spring:
+  application:
+    name: api-gateway-v1
+  sleuth:
+    sampler:
+      probability: 1
+  zipkin:
+    base-url: ${ZIPKIN_URL}
