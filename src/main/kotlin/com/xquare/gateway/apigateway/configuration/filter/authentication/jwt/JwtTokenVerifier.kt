@@ -1,9 +1,9 @@
-package com.xquare.gateway.apigateway.configuration.authentication.jwt
+package com.xquare.gateway.apigateway.configuration.filter.authentication.jwt
 
 import com.nimbusds.jwt.JWT
 import com.nimbusds.jwt.JWTParser
-import com.xquare.gateway.apigateway.configuration.authentication.exception.InvalidJwtException
-import com.xquare.gateway.apigateway.configuration.authentication.jwt.JwtTokenParsingHelper.isJwtTokenExpired
+import com.xquare.gateway.apigateway.configuration.filter.authentication.exception.InvalidJwtException
+import com.xquare.gateway.apigateway.configuration.filter.authentication.jwt.JwtTokenParsingHelper.isJwtTokenExpired
 import java.text.ParseException
 
 object JwtTokenVerifier {

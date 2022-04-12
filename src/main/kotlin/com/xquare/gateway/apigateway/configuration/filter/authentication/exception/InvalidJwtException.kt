@@ -1,4 +1,4 @@
-package com.xquare.gateway.apigateway.configuration.authentication.exception
+package com.xquare.gateway.apigateway.configuration.filter.authentication.exception
 
 import com.xquare.gateway.apigateway.configuration.exceptions.BaseException
 

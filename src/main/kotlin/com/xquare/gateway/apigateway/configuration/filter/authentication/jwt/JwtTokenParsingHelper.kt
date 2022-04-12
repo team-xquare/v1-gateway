@@ -1,4 +1,4 @@
-package com.xquare.gateway.apigateway.configuration.authentication.jwt
+package com.xquare.gateway.apigateway.configuration.filter.authentication.jwt
 
 import com.nimbusds.jwt.JWTClaimsSet
 import org.springframework.http.HttpHeaders

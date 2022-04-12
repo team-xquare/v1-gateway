@@ -1,8 +1,8 @@
-package com.xquare.gateway.apigateway.configuration.authentication
+package com.xquare.gateway.apigateway.configuration.filter.authentication
 
-import com.xquare.gateway.apigateway.configuration.authentication.jwt.JwtTokenParsingHelper.getAuthorizationFromHeader
-import com.xquare.gateway.apigateway.configuration.authentication.jwt.JwtTokenParsingHelper.removeJwtTokenPrefix
-import com.xquare.gateway.apigateway.configuration.authentication.jwt.JwtTokenVerifier
+import com.xquare.gateway.apigateway.configuration.filter.authentication.jwt.JwtTokenParsingHelper.getAuthorizationFromHeader
+import com.xquare.gateway.apigateway.configuration.filter.authentication.jwt.JwtTokenParsingHelper.removeJwtTokenPrefix
+import com.xquare.gateway.apigateway.configuration.filter.authentication.jwt.JwtTokenVerifier
 import org.springframework.cloud.gateway.filter.GatewayFilterChain
 import org.springframework.cloud.gateway.filter.GlobalFilter
 import org.springframework.stereotype.Component
