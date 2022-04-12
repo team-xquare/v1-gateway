@@ -29,6 +29,7 @@ dependencies {
     implementation(Dependencies.KOTLIN_STDLIB)
     implementation(Dependencies.CIRCUIT_BREAKER)
     implementation(Dependencies.ACTUATOR)
+    implementation(Dependencies.MICROMETER)
     kapt(Dependencies.ANNOTATION_PROCESSOR)
     testImplementation(Dependencies.SPRING_BOOT_TEST)
 }

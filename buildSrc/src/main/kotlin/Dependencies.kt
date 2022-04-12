@@ -12,4 +12,5 @@ object Dependencies {
     const val SPRING_BOOT_TEST = "org.springframework.boot:spring-boot-starter-test"
     const val ACTUATOR = "org.springframework.boot:spring-boot-starter-actuator"
     const val ANNOTATION_PROCESSOR = "org.springframework.boot:spring-boot-configuration-processor"
+    const val MICROMETER = "io.micrometer:micrometer-registry-prometheus"
 }
