@@ -11,3 +11,19 @@ services:
   user:
     destination:
       user-service-url: ${USER_SERVICE_URL} # TODO replace with service discovery
+
+spring:
+  application:
+    name: api-gateway-v1
+  sleuth:
+    sampler:
+      probability: 1
+  zipkin:
+    base-url: ${ZIPKIN_URL}
+    sender:
+      type: rabbit
+  rabbitmq:
+    host: ${RABBIT_MQ_HOST}
+    port: ${RABBIT_MQ_PORT}
+    username: ${RABBIT_MQ_USERNAME}
+    password: ${RABBIT_MQ_PASSWORD}
