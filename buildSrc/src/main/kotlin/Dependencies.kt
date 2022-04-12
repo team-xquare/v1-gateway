@@ -13,4 +13,7 @@ object Dependencies {
     const val ACTUATOR = "org.springframework.boot:spring-boot-starter-actuator"
     const val ANNOTATION_PROCESSOR = "org.springframework.boot:spring-boot-configuration-processor"
     const val MICROMETER = "io.micrometer:micrometer-registry-prometheus"
+    const val ZIPKIN = "org.springframework.cloud:spring-cloud-sleuth-zipkin"
+    const val STARTER_SLEUTH = "org.springframework.cloud:spring-cloud-starter-sleuth"
+    const val SPRING_RABBIT = "org.springframework.amqp:spring-rabbit:${DependencyVersions.RABBIT_VERSION}"
 }

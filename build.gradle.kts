@@ -1,5 +1,4 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
 
 plugins {
     id("org.springframework.boot") version PluginVersions.SPRING_BOOT_VERSION
@@ -30,6 +29,9 @@ dependencies {
     implementation(Dependencies.CIRCUIT_BREAKER)
     implementation(Dependencies.ACTUATOR)
     implementation(Dependencies.MICROMETER)
+    implementation(Dependencies.ZIPKIN)
+    implementation(Dependencies.SPRING_RABBIT)
+    implementation(Dependencies.STARTER_SLEUTH)
     kapt(Dependencies.ANNOTATION_PROCESSOR)
     testImplementation(Dependencies.SPRING_BOOT_TEST)
 }
