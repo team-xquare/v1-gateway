@@ -1,5 +1,6 @@
 object Dependencies {
     const val SPRING_VALIDATION = "org.springframework.boot:spring-boot-starter-validation"
+    const val SECURITY_JWT = "com.nimbusds:nimbus-jose-jwt:${DependencyVersions.NIMBUS_VERSION}"
     const val WEBFLUX = "org.springframework.boot:spring-boot-starter-webflux"
     const val KOTLIN_JACKSON = "com.fasterxml.jackson.module:jackson-module-kotlin"
     const val COROUTINE_REACTOR_EXTENSION = "io.projectreactor.kotlin:reactor-kotlin-extensions"
