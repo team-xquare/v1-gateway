@@ -5,6 +5,7 @@ import com.xquare.gateway.apigateway.configuration.filter.authentication.jwt.Jwt
 import com.xquare.gateway.apigateway.configuration.filter.authentication.jwt.JwtTokenVerifier
 import org.springframework.cloud.gateway.filter.GatewayFilterChain
 import org.springframework.cloud.gateway.filter.GlobalFilter
+import org.springframework.http.server.reactive.ServerHttpRequest
 import org.springframework.stereotype.Component
 import org.springframework.web.server.ServerWebExchange
 import reactor.core.publisher.Mono
@@ -29,13 +30,16 @@ class AuthenticationFilter : GlobalFilter {
             val pureToken = it.removeJwtTokenPrefix()
             val parsedJwt = JwtTokenVerifier.parseJwtToken(pureToken)
 
-            val userId = parsedJwt.jwtClaimsSet.subject
-            val userRole = parsedJwt.jwtClaimsSet.getClaim("role")
-
-            request.headers.add(USER_ID_HEADER, userId)
-            request.headers.add(USER_ROLE_HEADER, userRole as String)
+            val userInfoHeader = UserInfoHeader(parsedJwt.jwtClaimsSet)
+            addUserIdAndRoleToHeader(userInfoHeader, request)
         }
 
         return chain.filter(exchange)
     }
+
+    private fun addUserIdAndRoleToHeader(userInfoHeader: UserInfoHeader, request: ServerHttpRequest) {
+        request.headers.add(USER_ID_HEADER, userInfoHeader.userId)
+        request.headers.add(USER_ROLE_HEADER, userInfoHeader.userRole)
+    }
+
 }
