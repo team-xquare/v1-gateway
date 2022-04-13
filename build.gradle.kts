@@ -28,6 +28,7 @@ dependencies {
     implementation(Dependencies.KOTLIN_STDLIB)
     implementation(Dependencies.CIRCUIT_BREAKER)
     implementation(Dependencies.ACTUATOR)
+    implementation(Dependencies.MICROMETER)
     implementation(Dependencies.ZIPKIN)
     implementation(Dependencies.SPRING_RABBIT)
     implementation(Dependencies.STARTER_SLEUTH)
