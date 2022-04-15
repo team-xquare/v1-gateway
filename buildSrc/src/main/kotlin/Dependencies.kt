@@ -1,4 +1,5 @@
 object Dependencies {
+    const val KTLINT = "com.pinterest:ktlint:${DependencyVersions.KTLINT_VERSION}"
     const val SPRING_VALIDATION = "org.springframework.boot:spring-boot-starter-validation"
     const val SECURITY_JWT = "com.nimbusds:nimbus-jose-jwt:${DependencyVersions.NIMBUS_VERSION}"
     const val WEBFLUX = "org.springframework.boot:spring-boot-starter-webflux"
