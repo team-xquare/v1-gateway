@@ -1,8 +1,8 @@
 package com.xquare.gateway.apigateway.configuration.filter.authentication
 
 import com.nimbusds.jwt.JWTClaimsSet
-import com.xquare.gateway.apigateway.configuration.filter.authentication.JWTClaimsSetExtensions.getUserId
-import com.xquare.gateway.apigateway.configuration.filter.authentication.JWTClaimsSetExtensions.getUserRole
+import com.xquare.gateway.apigateway.configuration.filter.authentication.jwt.JWTClaimsSetExtensions.getUserId
+import com.xquare.gateway.apigateway.configuration.filter.authentication.jwt.JWTClaimsSetExtensions.getUserRole
 
 data class UserInfoHeader(
     val userId: String,

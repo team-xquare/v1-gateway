@@ -1,4 +1,4 @@
-package com.xquare.gateway.apigateway.configuration.filter.authentication
+package com.xquare.gateway.apigateway.configuration.filter.authentication.jwt
 
 import com.nimbusds.jwt.JWTClaimsSet
 
