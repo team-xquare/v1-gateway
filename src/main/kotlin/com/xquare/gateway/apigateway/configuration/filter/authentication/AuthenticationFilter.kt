@@ -38,7 +38,9 @@ class AuthenticationFilter : GlobalFilter {
     }
 
     private fun addUserIdAndRoleToHeader(userInfoHeader: UserInfoHeader, request: ServerHttpRequest) {
-        request.headers.add(USER_ID_HEADER, userInfoHeader.userId)
-        request.headers.add(USER_ROLE_HEADER, userInfoHeader.userRole)
+        request.headers.apply {
+            add(USER_ID_HEADER, userInfoHeader.userId)
+            add(USER_ROLE_HEADER, userInfoHeader.userRole)
+        }
     }
 }
