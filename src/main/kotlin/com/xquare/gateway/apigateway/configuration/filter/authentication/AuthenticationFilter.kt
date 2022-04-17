@@ -41,5 +41,4 @@ class AuthenticationFilter : GlobalFilter {
         request.headers.add(USER_ID_HEADER, userInfoHeader.userId)
         request.headers.add(USER_ROLE_HEADER, userInfoHeader.userRole)
     }
-
 }

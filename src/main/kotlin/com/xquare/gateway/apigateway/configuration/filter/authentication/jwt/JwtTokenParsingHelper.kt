@@ -2,7 +2,7 @@ package com.xquare.gateway.apigateway.configuration.filter.authentication.jwt
 
 import com.nimbusds.jwt.JWTClaimsSet
 import org.springframework.http.HttpHeaders
-import java.util.*
+import java.util.Date
 
 object JwtTokenParsingHelper {
 
@@ -20,5 +20,4 @@ object JwtTokenParsingHelper {
 
     fun JWTClaimsSet.isJwtTokenExpired() =
         this.expirationTime.after(Date())
-
 }
