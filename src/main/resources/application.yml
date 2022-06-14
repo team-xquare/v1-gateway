@@ -6,11 +6,8 @@ management:
   endpoint:
     health:
       show-details: when_authorized
-
-services:
-  user:
-    destination:
-      user-service-url: ${USER_SERVICE_URL} # TODO replace with service discovery
+jwt:
+  secret-key: ${JWT_SECRET_KEY}
 
 spring:
   application:

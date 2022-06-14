@@ -1,6 +1,6 @@
-package com.xquare.gateway.apigateway.user
+package com.xquare.gateway.apigateway.infrastructure.user.router
 
-import com.xquare.gateway.apigateway.user.destinations.UserProperty
+import com.xquare.gateway.apigateway.infrastructure.user.destinations.UserProperty
 import org.springframework.cloud.gateway.route.RouteLocator
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder
 import org.springframework.context.annotation.Bean
@@ -18,7 +18,7 @@ class UserRouteLocator(
             .route {
                 it.path("/users").and()
                     .method(HttpMethod.GET)
-                    .uri(userProperty.destination.userServiceUrl)
+                    .uri(userProperty.destination.userServiceHost)
             }
             .build()
 }

@@ -32,6 +32,7 @@ dependencies {
     implementation(Dependencies.ZIPKIN)
     implementation(Dependencies.SPRING_RABBIT)
     implementation(Dependencies.STARTER_SLEUTH)
+    implementation(Dependencies.HTTP_CLIENT)
     kapt(Dependencies.ANNOTATION_PROCESSOR)
     testImplementation(Dependencies.SPRING_BOOT_TEST)
 }

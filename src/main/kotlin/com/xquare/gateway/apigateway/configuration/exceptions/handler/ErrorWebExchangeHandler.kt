@@ -42,7 +42,7 @@ class ErrorWebExchangeHandler(
         when (val throwable = super.getError(request)) {
             is BaseException -> buildErrorResponse(throwable)
             is ConnectException -> buildErrorResponse(ServiceConnectionException.CANNOT_CONNECT_EXCEPTION)
-            else -> buildErrorResponse(InternalServerError.UNCAUGHT_EXCEPTION_OCCURRED)
+            else -> buildErrorResponse(InternalServerError.UNCAUGHT_EXCEPTION_OCCURRED_EXCEPTION)
         }
 
     private fun buildErrorResponse(baseException: BaseException) =

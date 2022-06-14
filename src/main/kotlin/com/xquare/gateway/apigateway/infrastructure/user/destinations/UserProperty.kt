@@ -1,4 +1,4 @@
-package com.xquare.gateway.apigateway.user.destinations
+package com.xquare.gateway.apigateway.infrastructure.user.destinations
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.ConstructorBinding
@@ -13,5 +13,11 @@ class UserProperty(
 
 @ConstructorBinding
 class UserDestinationProperty(
-    val userServiceUrl: String
+    val userServiceHost: String,
+    val userEndpointProperty: UserEndpointProperty
+)
+
+@ConstructorBinding
+class UserEndpointProperty(
+    val checkLoginAvailableEndpoint: String
 )

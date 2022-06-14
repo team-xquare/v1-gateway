@@ -17,4 +17,5 @@ object Dependencies {
     const val ZIPKIN = "org.springframework.cloud:spring-cloud-sleuth-zipkin"
     const val STARTER_SLEUTH = "org.springframework.cloud:spring-cloud-starter-sleuth"
     const val SPRING_RABBIT = "org.springframework.amqp:spring-rabbit:${DependencyVersions.RABBIT_VERSION}"
+    const val HTTP_CLIENT = "org.apache.httpcomponents:httpclient:${DependencyVersions.HTTP_CLIENT_VERSION}"
 }

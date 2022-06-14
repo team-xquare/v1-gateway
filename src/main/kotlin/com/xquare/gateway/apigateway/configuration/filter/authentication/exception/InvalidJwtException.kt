@@ -2,10 +2,13 @@ package com.xquare.gateway.apigateway.configuration.filter.authentication.except
 
 import com.xquare.gateway.apigateway.configuration.exceptions.BaseException
 
-class InvalidJwtException(
+class InvalidJwtException private constructor(
     errorMessage: String
 ) : BaseException(errorMessage, 401) {
     companion object {
-        const val JWT_EXPIRED_MESSAGE = "Jwt Token Expired"
+        @JvmField
+        val JWT_EXPIRED_EXCEPTION = InvalidJwtException("Jwt Token Expired")
+        @JvmField
+        val INVALID_JWT_SIGNATURE_EXCEPTION = InvalidJwtException("Invalid Jwt Signature")
     }
 }

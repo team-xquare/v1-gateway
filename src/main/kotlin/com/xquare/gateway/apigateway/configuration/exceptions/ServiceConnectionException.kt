@@ -4,6 +4,7 @@ class ServiceConnectionException private constructor(
     errorMessage: String
 ) : BaseException(errorMessage, 500) {
     companion object {
+        @JvmField
         val CANNOT_CONNECT_EXCEPTION = ServiceConnectionException("Cannot Connect to service")
     }
 }
