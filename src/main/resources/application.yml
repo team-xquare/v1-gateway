@@ -35,6 +35,3 @@ spring:
           uri: ${AUTHORITY_SERVICE_HOST}:${AUTHORITY_SERVICE_ENDPOINT}
           predicates:
             - Path=/authorities/**
-      filter:
-        add-request-parameter:
-          enabled: false
