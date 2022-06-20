@@ -29,9 +29,6 @@ dependencies {
     implementation(Dependencies.CIRCUIT_BREAKER)
     implementation(Dependencies.ACTUATOR)
     implementation(Dependencies.MICROMETER)
-    implementation(Dependencies.ZIPKIN)
-    implementation(Dependencies.SPRING_RABBIT)
-    implementation(Dependencies.STARTER_SLEUTH)
     implementation(Dependencies.HTTP_CLIENT)
     kapt(Dependencies.ANNOTATION_PROCESSOR)
     testImplementation(Dependencies.SPRING_BOOT_TEST)
@@ -75,7 +72,7 @@ val ktlintCheck by tasks.creating(JavaExec::class) {
     description = "Check Kotlin code style."
     classpath = ktlint
     mainClass.set("com.pinterest.ktlint.Main")
-    args = listOf("-F", "**/*.kt")
+    args = listOf("**/*.kt", "**/*.kts")
 }
 
 // Formatting all source files

@@ -24,3 +24,14 @@ spring:
     port: ${RABBIT_MQ_PORT}
     username: ${RABBIT_MQ_USERNAME}
     password: ${RABBIT_MQ_PASSWORD}
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: ${USER_SERVICE_HOST}:${USER_SERVICE_PORT}
+          predicates:
+            - Path=/users/**
+        - id: authority-service
+          uri: ${AUTHORITY_SERVICE_HOST}:${AUTHORITY_SERVICE_ENDPOINT}
+          predicates:
+            - Path=/authorities/**
