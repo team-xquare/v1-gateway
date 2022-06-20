@@ -72,7 +72,7 @@ val ktlintCheck by tasks.creating(JavaExec::class) {
     description = "Check Kotlin code style."
     classpath = ktlint
     mainClass.set("com.pinterest.ktlint.Main")
-    args = listOf("-F", "**/*.kt")
+    args = listOf("**/*.kt", "**/*.kts")
 }
 
 // Formatting all source files

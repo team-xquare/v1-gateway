@@ -1,12 +1,11 @@
 package com.xquare.gateway.apigateway.configuration.filter.authentication
 
-import com.xquare.gateway.apigateway.configuration.exceptions.handler.CustomHeaders
 import com.xquare.gateway.apigateway.configuration.filter.authentication.jwt.JwtTokenParsingHelper.getAuthorizationFromHeader
 import com.xquare.gateway.apigateway.configuration.filter.authentication.jwt.JwtTokenParsingHelper.removeJwtTokenPrefix
 import com.xquare.gateway.apigateway.infrastructure.jwt.JwtTokenParser
+import java.util.UUID
 import org.springframework.cloud.gateway.filter.GatewayFilterChain
 import org.springframework.cloud.gateway.filter.GlobalFilter
-import org.springframework.cloud.sleuth.Tracer
 import org.springframework.stereotype.Component
 import org.springframework.web.server.ServerWebExchange
 import reactor.core.publisher.Mono
@@ -14,17 +13,15 @@ import reactor.core.publisher.Mono
 @Component
 class AuthenticationFilter(
     private val jwtTokenParser: JwtTokenParser,
-    private val tracer: Tracer
 ) : GlobalFilter {
 
     override fun filter(exchange: ServerWebExchange, chain: GatewayFilterChain): Mono<Void> {
         val request = exchange.request
         val bearerToken = request.headers.getAuthorizationFromHeader()
 
-        val span = tracer.currentSpan()!!
         val requestBuilder = request.mutate()
 
-        requestBuilder.header("Request-Id", span.context().spanId())
+        requestBuilder.header("Request-Id", UUID.randomUUID().toString())
 
         bearerToken?.let {
             val pureToken = it.removeJwtTokenPrefix()
